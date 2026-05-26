@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050816;
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 12px #00ffff;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+  text-decoration: none;
+}
+
+/* =========================
+   TITLES
+========================= */
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(38px, 5vw, 65px);
+  text-align: center;
+  margin-bottom: 70px;
+  color: #00ffff;
+  text-shadow: 0 0 25px #00ffff;
+}
+
+.neon-text {
+  color: #00ffff;
+  text-shadow: 0 0 18px #00ffff;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cyber-card {
+  background: rgba(10, 15, 35, 0.72);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.12);
+  border-radius: 28px;
+  transition: 0.4s;
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.cyber-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 45px rgba(0, 255, 255, 0.45);
+  border: 1px solid rgba(0,255,255,.55);
+}
+
+/* =========================
+   CYBER BACKGROUND
+========================= */
+
+.cyber-bg {
+  background:
+    linear-gradient(rgba(0,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.03) 1px, transparent 1px),
+    radial-gradient(circle at top, rgba(0,255,255,.12), transparent 45%);
+
+  background-size:
+    45px 45px,
+    45px 45px,
+    cover;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.cyber-button {
+  padding: 18px 42px;
+  border-radius: 16px;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  background: rgba(0,255,255,.03);
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.35s;
+  box-shadow: 0 0 18px rgba(0,255,255,.15);
+  backdrop-filter: blur(10px);
+}
+
+.cyber-button:hover {
+  background: #00ffff;
+  color: #020617;
+  transform: translateY(-5px);
+  box-shadow: 0 0 35px rgba(0,255,255,.65);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.pulseGlow {
+  animation: pulseGlow 2.5s ease-in-out infinite alternate;
+}
+
+.fadeIn {
+  animation: fadeIn 1.2s ease;
+}
+
+.slideUp {
+  animation: slideUp 1s ease;
+}
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes pulseGlow {
+
+  from {
+    box-shadow: 0 0 18px rgba(0,255,255,.35);
+  }
+
+  to {
+    box-shadow: 0 0 42px rgba(0,255,255,.85);
+  }
+
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+@keyframes slideUp {
+
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0,255,255,.25);
+  animation: floatParticle linear infinite;
+  box-shadow: 0 0 10px rgba(0,255,255,.5);
+}
+
+@keyframes floatParticle {
+
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-120vh);
+  }
+
+}
+
+/* =========================
+   GLOW ORBS
+========================= */
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: .18;
+  z-index: 0;
+  animation: orbMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes orbMove {
+
+  from {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  to {
+    transform: translateY(25px) translateX(15px);
+  }
+
+}
+
+/* =========================
+   LOADER
+========================= */
+
+@keyframes spin {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+/* =========================
+   TYPING CURSOR
+========================= */
+
+.typingCursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.desktop-menu {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-button {
+  display: none;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+.desktop-menu a,
+.mobile-menu a {
+  transition: 0.3s;
+}
+
+.desktop-menu a:hover,
+.mobile-menu a:hover {
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+}
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+.profile-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 35px rgba(0,255,255,.45);
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-button {
+    display: block;
+  }
+
+  h1 {
+    font-size: 58px !important;
+    line-height: 68px !important;
+  }
+
+  section {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 42px !important;
+    line-height: 52px !important;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px !important;
+    line-height: 32px !important;
+  }
+
+  .profile-image {
+    width: 170px;
+    height: 170px;
+  }
+
+  .cyber-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* TERMINAL */
+
+.terminal-line {
+  animation: terminalGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes terminalGlow {
+
+  from {
+    opacity: .7;
+    text-shadow: 0 0 8px rgba(0,255,255,.25);
+  }
+
+  to {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(0,255,255,.8);
+  }
+
+}
+
+}
