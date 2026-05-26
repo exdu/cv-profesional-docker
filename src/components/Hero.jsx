@@ -24,7 +24,7 @@ function Hero() {
       }}
     >
 
-      {/* ORBS */}
+      {/* EFECTOS */}
 
       <div
         className="glow-orb"
@@ -32,7 +32,7 @@ function Hero() {
           width: "320px",
           height: "320px",
           background: "#00ffff",
-          top: "0%",
+          top: 0,
           left: "-140px",
         }}
       />
@@ -52,7 +52,7 @@ function Hero() {
 
       <div
         style={{
-          maxWidth: "1200px",
+          maxWidth: "1100px",
           position: "relative",
           zIndex: 2,
         }}
@@ -62,22 +62,23 @@ function Hero() {
 
         <div
           className="float pulseGlow"
+          contentEditable
+          suppressContentEditableWarning
           style={{
-            width: "190px",
-            height: "190px",
-            margin: "0 auto 45px",
+            width: "180px",
+            height: "180px",
+            margin: "0 auto 40px",
             borderRadius: "50%",
             border: "2px solid #00ffff",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             fontFamily: "Orbitron",
-            fontSize: "64px",
+            fontSize: "60px",
             fontWeight: "bold",
             color: "#00ffff",
             background: "rgba(0,255,255,.08)",
-            boxShadow: "0 0 45px rgba(0,255,255,.45)",
-            backdropFilter: "blur(12px)",
+            boxShadow: "0 0 40px rgba(0,255,255,.4)",
           }}
         >
           CB
@@ -87,8 +88,10 @@ function Hero() {
 
         <p
           className="neon-text"
+          contentEditable
+          suppressContentEditableWarning
           style={{
-            letterSpacing: "7px",
+            letterSpacing: "6px",
             fontSize: "20px",
             marginBottom: "20px",
             fontWeight: "bold",
@@ -100,6 +103,8 @@ function Hero() {
         {/* NOMBRE */}
 
         <h1
+          contentEditable
+          suppressContentEditableWarning
           style={{
             fontFamily: "Orbitron",
             fontSize: "92px",
@@ -119,11 +124,13 @@ function Hero() {
         {/* PERFIL */}
 
         <p
+          contentEditable
+          suppressContentEditableWarning
           style={{
             color: "#c7d2fe",
             fontSize: "24px",
             lineHeight: "42px",
-            maxWidth: "950px",
+            maxWidth: "900px",
             margin: "35px auto 0",
           }}
         >
@@ -136,8 +143,8 @@ function Hero() {
           style={{
             marginTop: "60px",
             display: "flex",
-            gap: "25px",
             justifyContent: "center",
+            gap: "25px",
             flexWrap: "wrap",
           }}
         >
@@ -165,7 +172,7 @@ function Hero() {
             marginTop: "80px",
             display: "flex",
             justifyContent: "center",
-            gap: "35px",
+            gap: "30px",
             flexWrap: "wrap",
           }}
         >
@@ -179,7 +186,11 @@ function Hero() {
               Universidad
             </h3>
 
-            <p style={infoText}>
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              style={infoText}
+            >
               {data.personal.universidad}
             </p>
 
@@ -194,7 +205,11 @@ function Hero() {
               Carrera
             </h3>
 
-            <p style={infoText}>
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              style={infoText}
+            >
               {data.personal.carrera}
             </p>
 
@@ -209,7 +224,11 @@ function Hero() {
               Ciclo
             </h3>
 
-            <p style={infoText}>
+            <p
+              contentEditable
+              suppressContentEditableWarning
+              style={infoText}
+            >
               {data.personal.ciclo}
             </p>
 
@@ -225,7 +244,7 @@ function Hero() {
 
 const infoCard = {
   padding: "28px 35px",
-  minWidth: "260px",
+  minWidth: "250px",
   textAlign: "center",
 };
 

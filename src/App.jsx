@@ -39,7 +39,6 @@ import Certifications from "./components/Certifications";
 
 /* CONTACTO */
 import Contact from "./components/Contact";
-import EditorPanel from "./components/EditorPanel";
 import Footer from "./components/Footer";
 
 function App() {
@@ -119,9 +118,6 @@ function App() {
 
           {/* CONTACTO */}
           <Contact />
-
-          {/* PANEL EDITABLE */}
-          <EditorPanel />
 
           {/* FOOTER */}
           <Footer />
