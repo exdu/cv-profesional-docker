@@ -2,16 +2,55 @@ import { useEffect, useRef, useState } from "react";
 
 function Hero() {
 
-  /* FOTO */
+  const defaultData = {
 
-  const [profileImage, setProfileImage] =
-    useState(
-      localStorage.getItem("profileImage")
-      ||
-      "https://i.imgur.com/2DhmtJ4.png"
+    profileImage:
+      "https://i.imgur.com/2DhmtJ4.png",
+
+    tag:
+      "CYBERSECURITY • WEB • DOCKER",
+
+    name:
+      "Carlos Eduardo Bravo Picon",
+
+    description:
+      "Estudiante de Ingeniería de Sistemas orientado al desarrollo web, Docker, Linux y tecnologías modernas con enfoque profesional y responsive.",
+
+    university:
+      "Universidad de Huánuco",
+
+    career:
+      "Ingeniería de Sistemas",
+
+    technologies:
+      "React • Docker • Linux",
+
+  };
+
+  const [heroData, setHeroData] =
+    useState(() => {
+
+      const saved =
+        localStorage.getItem("heroData");
+
+      return saved
+        ? JSON.parse(saved)
+        : defaultData;
+
+    });
+
+  useEffect(() => {
+
+    localStorage.setItem(
+      "heroData",
+      JSON.stringify(heroData)
     );
 
+  }, [heroData]);
+
   const fileInputRef = useRef(null);
+
+  /* CAMBIAR FOTO */
 
   const changePhoto = (e) => {
 
@@ -23,14 +62,10 @@ function Hero() {
 
     reader.onloadend = () => {
 
-      const image = reader.result;
-
-      setProfileImage(image);
-
-      localStorage.setItem(
-        "profileImage",
-        image
-      );
+      setHeroData({
+        ...heroData,
+        profileImage: reader.result,
+      });
 
     };
 
@@ -38,35 +73,19 @@ function Hero() {
 
   };
 
-  /* TEXTOS EDITABLES */
+  /* EDITAR TEXTO */
 
-  const [name, setName] =
-    useState(
-      localStorage.getItem("heroName")
-      ||
-      "Carlos Eduardo Bravo Picon"
-    );
+  const updateField = (
+    field,
+    value
+  ) => {
 
-  const [description, setDescription] =
-    useState(
-      localStorage.getItem("heroDescription")
-      ||
-      "Estudiante de Ingeniería de Sistemas orientado al desarrollo web, Docker, Linux y tecnologías modernas con enfoque profesional y responsive."
-    );
+    setHeroData({
+      ...heroData,
+      [field]: value,
+    });
 
-  useEffect(() => {
-
-    localStorage.setItem(
-      "heroName",
-      name
-    );
-
-    localStorage.setItem(
-      "heroDescription",
-      description
-    );
-
-  }, [name, description]);
+  };
 
   return (
     <section
@@ -121,15 +140,16 @@ function Hero() {
             borderRadius: "50%",
             border: "2px solid #00ffff",
             overflow: "hidden",
-            background: "rgba(0,255,255,.08)",
             cursor: "pointer",
+            background:
+              "rgba(0,255,255,.08)",
             boxShadow:
               "0 0 35px rgba(0,255,255,.35)",
           }}
         >
 
           <img
-            src={profileImage}
+            src={heroData.profileImage}
             alt="profile"
             style={{
               width: "100%",
@@ -153,9 +173,14 @@ function Hero() {
         {/* TAG */}
 
         <p
-          className="neon-text"
           contentEditable
           suppressContentEditableWarning
+          onBlur={(e)=>
+            updateField(
+              "tag",
+              e.target.innerText
+            )
+          }
           style={{
             marginBottom: "20px",
             letterSpacing: "5px",
@@ -164,7 +189,7 @@ function Hero() {
             outline: "none",
           }}
         >
-          CYBERSECURITY • WEB • DOCKER
+          {heroData.tag}
         </p>
 
         {/* NOMBRE */}
@@ -172,8 +197,9 @@ function Hero() {
         <h1
           contentEditable
           suppressContentEditableWarning
-          onBlur={(e) =>
-            setName(
+          onBlur={(e)=>
+            updateField(
+              "name",
               e.target.innerText
             )
           }
@@ -186,7 +212,7 @@ function Hero() {
             outline: "none",
           }}
         >
-          {name}
+          {heroData.name}
         </h1>
 
         {/* DESCRIPCIÓN */}
@@ -194,8 +220,9 @@ function Hero() {
         <p
           contentEditable
           suppressContentEditableWarning
-          onBlur={(e) =>
-            setDescription(
+          onBlur={(e)=>
+            updateField(
+              "description",
               e.target.innerText
             )
           }
@@ -209,7 +236,7 @@ function Hero() {
             outline: "none",
           }}
         >
-          {description}
+          {heroData.description}
         </p>
 
         {/* BOTONES */}
@@ -264,9 +291,15 @@ function Hero() {
             <p
               contentEditable
               suppressContentEditableWarning
+              onBlur={(e)=>
+                updateField(
+                  "university",
+                  e.target.innerText
+                )
+              }
               style={textStyle}
             >
-              Universidad de Huánuco
+              {heroData.university}
             </p>
 
           </div>
@@ -283,9 +316,15 @@ function Hero() {
             <p
               contentEditable
               suppressContentEditableWarning
+              onBlur={(e)=>
+                updateField(
+                  "career",
+                  e.target.innerText
+                )
+              }
               style={textStyle}
             >
-              Ingeniería de Sistemas
+              {heroData.career}
             </p>
 
           </div>
@@ -302,9 +341,15 @@ function Hero() {
             <p
               contentEditable
               suppressContentEditableWarning
+              onBlur={(e)=>
+                updateField(
+                  "technologies",
+                  e.target.innerText
+                )
+              }
               style={textStyle}
             >
-              React • Docker • Linux
+              {heroData.technologies}
             </p>
 
           </div>
