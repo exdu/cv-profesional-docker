@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { CVContext } from "../context/CVContext";
 
@@ -7,6 +7,33 @@ import TypingText from "./TypingText";
 function Hero() {
 
   const { data } = useContext(CVContext);
+
+  const [image, setImage] = useState(
+    localStorage.getItem("profileImage") || ""
+  );
+
+  const handleImage = (e) => {
+
+    const file = e.target.files[0];
+
+    if (!file) return;
+
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+
+      setImage(reader.result);
+
+      localStorage.setItem(
+        "profileImage",
+        reader.result
+      );
+
+    };
+
+    reader.readAsDataURL(file);
+
+  };
 
   return (
     <section
@@ -24,7 +51,7 @@ function Hero() {
       }}
     >
 
-      {/* EFECTOS */}
+      {/* ORBS */}
 
       <div
         className="glow-orb"
@@ -58,31 +85,76 @@ function Hero() {
         }}
       >
 
-        {/* LOGO */}
+        {/* FOTO */}
 
         <div
           className="float pulseGlow"
-          contentEditable
-          suppressContentEditableWarning
           style={{
-            width: "180px",
-            height: "180px",
-            margin: "0 auto 40px",
+            width: "190px",
+            height: "190px",
+            margin: "0 auto 25px",
             borderRadius: "50%",
+            overflow: "hidden",
             border: "2px solid #00ffff",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            fontFamily: "Orbitron",
-            fontSize: "60px",
-            fontWeight: "bold",
-            color: "#00ffff",
             background: "rgba(0,255,255,.08)",
             boxShadow: "0 0 40px rgba(0,255,255,.4)",
           }}
         >
-          CB
+
+          {image ? (
+
+            <img
+              src={image}
+              alt="profile"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            />
+
+          ) : (
+
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                fontFamily: "Orbitron",
+                fontSize: "60px",
+                fontWeight: "bold",
+                color: "#00ffff",
+              }}
+            >
+              CB
+            </div>
+
+          )}
+
         </div>
+
+        {/* BOTON FOTO */}
+
+        <label
+          className="cyber-button"
+          style={{
+            marginBottom: "35px",
+            display: "inline-block",
+            cursor: "pointer",
+          }}
+        >
+          Cambiar Foto
+
+          <input
+            type="file"
+            accept="image/*"
+            hidden
+            onChange={handleImage}
+          />
+
+        </label>
 
         {/* TAG */}
 
