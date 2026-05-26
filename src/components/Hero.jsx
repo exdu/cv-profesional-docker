@@ -5,7 +5,7 @@ function Hero() {
   const defaultData = {
 
     profileImage:
-      "c:\Users\INTEL\Downloads\WhatsApp Image 2026-05-26 at 13.46.02.jpeg",
+      "/perfil.jpeg",
 
     tag:
       "CYBERSECURITY • WEB • DOCKER",
