@@ -9,17 +9,17 @@ import CursorGlow from "./components/CursorGlow";
 /* NAVBAR */
 import Navbar from "./components/Navbar";
 
-/* SECCIONES PRINCIPALES */
+/* SECCIONES */
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Education from "./components/Education";
 
-/* PERFIL PROFESIONAL */
+/* PERFIL */
 import Stats from "./components/Stats";
 import Skills from "./components/Skills";
 import TechStack from "./components/TechStack";
 
-/* SERVICIOS Y EXPERIENCIA */
+/* EXPERIENCIA */
 import Services from "./components/Services";
 import Experience from "./components/Experience";
 import Testimonials from "./components/Testimonials";
@@ -27,7 +27,7 @@ import Testimonials from "./components/Testimonials";
 /* PROYECTOS */
 import Projects from "./components/Projects";
 
-/* TECNOLOGÍAS */
+/* TERMINAL */
 import Terminal from "./components/Terminal";
 
 /* DOCUMENTACIÓN */
@@ -45,11 +45,14 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
+  const isMobile =
+    window.innerWidth <= 768;
+
   useEffect(() => {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1800);
 
     return () => clearTimeout(timer);
 
@@ -65,14 +68,18 @@ function App() {
         backgroundColor: "#050816",
         minHeight: "100vh",
         position: "relative",
+        overflowX: "hidden",
       }}
     >
 
-      {/* EFECTOS */}
-      <Background />
-      <CursorGlow />
+      {/* EFECTOS SOLO EN PC */}
+
+      {!isMobile && <Background />}
+
+      {!isMobile && <CursorGlow />}
 
       {/* CONTENIDO */}
+
       <div
         style={{
           position: "relative",
@@ -84,42 +91,36 @@ function App() {
 
         <main>
 
-          {/* HERO */}
           <Hero />
 
-          {/* PRESENTACIÓN */}
           <About />
+
           <Education />
 
-          {/* PERFIL */}
           <Stats />
+
           <Skills />
+
           <TechStack />
 
-          {/* SERVICIOS */}
           <Services />
 
-          {/* EXPERIENCIA */}
           <Experience />
+
           <Testimonials />
 
-          {/* PROYECTOS */}
           <Projects />
 
-          {/* TERMINAL / DOCKER */}
           <Terminal />
 
-          {/* DOCUMENTACIÓN */}
           <ProfessionalJourney />
+
           <Documentation />
 
-          {/* CERTIFICACIONES */}
           <Certifications />
 
-          {/* CONTACTO */}
           <Contact />
 
-          {/* FOOTER */}
           <Footer />
 
         </main>
