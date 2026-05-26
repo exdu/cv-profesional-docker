@@ -22,17 +22,9 @@ import TechStack from "./components/TechStack";
 /* EXPERIENCIA */
 import Services from "./components/Services";
 import Experience from "./components/Experience";
-import Testimonials from "./components/Testimonials";
 
 /* PROYECTOS */
 import Projects from "./components/Projects";
-
-/* TERMINAL */
-import Terminal from "./components/Terminal";
-
-/* DOCUMENTACIÓN */
-import ProfessionalJourney from "./components/ProfessionalJourney";
-import Documentation from "./components/Documentation";
 
 /* CERTIFICACIONES */
 import Certifications from "./components/Certifications";
@@ -40,6 +32,12 @@ import Certifications from "./components/Certifications";
 /* CONTACTO */
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+
+/* SOLO PC */
+import Testimonials from "./components/Testimonials";
+import Terminal from "./components/Terminal";
+import ProfessionalJourney from "./components/ProfessionalJourney";
+import Documentation from "./components/Documentation";
 
 function App() {
 
@@ -52,7 +50,7 @@ function App() {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1800);
+    }, 1200);
 
     return () => clearTimeout(timer);
 
@@ -72,7 +70,7 @@ function App() {
       }}
     >
 
-      {/* EFECTOS SOLO EN PC */}
+      {/* EFECTOS SOLO PC */}
 
       {!isMobile && <Background />}
 
@@ -107,19 +105,21 @@ function App() {
 
           <Experience />
 
-          <Testimonials />
-
           <Projects />
-
-          <Terminal />
-
-          <ProfessionalJourney />
-
-          <Documentation />
 
           <Certifications />
 
           <Contact />
+
+          {/* SOLO PC */}
+
+          {!isMobile && <Testimonials />}
+
+          {!isMobile && <Terminal />}
+
+          {!isMobile && <ProfessionalJourney />}
+
+          {!isMobile && <Documentation />}
 
           <Footer />
 

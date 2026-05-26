@@ -1,409 +1,242 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
 
-/* =========================
-   RESET
-========================= */
+/* RESET */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-  background: #050816;
-  color: white;
-  font-family: 'Rajdhani', sans-serif;
-  overflow-x: hidden;
-  position: relative;
+body{
+  background:#050816;
+  color:white;
+  font-family:'Rajdhani',sans-serif;
+  overflow-x:hidden;
 }
 
-/* =========================
-   SCROLLBAR
-========================= */
+/* SCROLL */
 
-::-webkit-scrollbar {
-  width: 10px;
+::-webkit-scrollbar{
+  width:8px;
 }
 
-::-webkit-scrollbar-track {
-  background: #020617;
+::-webkit-scrollbar-thumb{
+  background:#00ffff;
+  border-radius:20px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #00ffff;
-  border-radius: 20px;
-  box-shadow: 0 0 12px #00ffff;
+/* LINKS */
+
+a{
+  text-decoration:none;
 }
 
-/* =========================
-   LINKS
-========================= */
+/* TITLES */
 
-a {
-  text-decoration: none;
+.section-title{
+  font-family:'Orbitron',sans-serif;
+  font-size:clamp(34px,5vw,62px);
+  text-align:center;
+  margin-bottom:60px;
+  color:#00ffff;
+  text-shadow:0 0 12px rgba(0,255,255,.5);
 }
 
-/* =========================
-   TITLES
-========================= */
-
-.section-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(38px, 5vw, 65px);
-  text-align: center;
-  margin-bottom: 70px;
-  color: #00ffff;
-  text-shadow: 0 0 25px #00ffff;
+.neon-text{
+  color:#00ffff;
+  text-shadow:0 0 10px rgba(0,255,255,.45);
 }
 
-.neon-text {
-  color: #00ffff;
-  text-shadow: 0 0 18px #00ffff;
+/* CARDS */
+
+.cyber-card{
+  background:rgba(10,15,35,.92);
+  border:1px solid rgba(0,255,255,.18);
+  border-radius:24px;
+  transition:.25s;
 }
 
-/* =========================
-   CARDS
-========================= */
-
-.cyber-card {
-  background: rgba(10, 15, 35, 0.72);
-  border: 1px solid rgba(0, 255, 255, 0.25);
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.12);
-  border-radius: 28px;
-  transition: 0.4s;
-  backdrop-filter: blur(16px);
-  overflow: hidden;
+.cyber-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(0,255,255,.45);
 }
 
-.cyber-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 0 45px rgba(0, 255, 255, 0.45);
-  border: 1px solid rgba(0,255,255,.55);
-}
+/* BACKGROUND */
 
-/* =========================
-   CYBER BACKGROUND
-========================= */
-
-.cyber-bg {
+.cyber-bg{
   background:
-    linear-gradient(rgba(0,255,255,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,.03) 1px, transparent 1px),
-    radial-gradient(circle at top, rgba(0,255,255,.12), transparent 45%);
+    linear-gradient(rgba(0,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.02) 1px, transparent 1px);
 
-  background-size:
-    45px 45px,
-    45px 45px,
-    cover;
+  background-size:40px 40px;
 }
 
-/* =========================
-   BUTTONS
-========================= */
+/* BUTTONS */
 
-.cyber-button {
-  padding: 18px 42px;
-  border-radius: 16px;
-  border: 1px solid #00ffff;
-  color: #00ffff;
-  background: rgba(0,255,255,.03);
-  font-size: 18px;
-  font-weight: bold;
-  transition: 0.35s;
-  box-shadow: 0 0 18px rgba(0,255,255,.15);
-  backdrop-filter: blur(10px);
+.cyber-button{
+  padding:16px 34px;
+  border-radius:14px;
+  border:1px solid #00ffff;
+  color:#00ffff;
+  background:transparent;
+  font-size:17px;
+  font-weight:bold;
+  transition:.25s;
 }
 
-.cyber-button:hover {
-  background: #00ffff;
-  color: #020617;
-  transform: translateY(-5px);
-  box-shadow: 0 0 35px rgba(0,255,255,.65);
+.cyber-button:hover{
+  background:#00ffff;
+  color:#020617;
 }
 
-/* =========================
-   ANIMATIONS
-========================= */
+/* ANIMATIONS */
 
-.float {
-  animation: float 4s ease-in-out infinite;
+.float{
+  animation:float 4s ease-in-out infinite;
 }
 
-.pulseGlow {
-  animation: pulseGlow 2.5s ease-in-out infinite alternate;
+.fadeIn{
+  animation:fadeIn .8s ease;
 }
 
-.fadeIn {
-  animation: fadeIn 1.2s ease;
-}
+@keyframes float{
 
-.slideUp {
-  animation: slideUp 1s ease;
-}
-
-@keyframes float {
-
-  0% {
-    transform: translateY(0);
+  0%{
+    transform:translateY(0);
   }
 
-  50% {
-    transform: translateY(-18px);
+  50%{
+    transform:translateY(-10px);
   }
 
-  100% {
-    transform: translateY(0);
+  100%{
+    transform:translateY(0);
   }
 
 }
 
-@keyframes pulseGlow {
+@keyframes fadeIn{
 
-  from {
-    box-shadow: 0 0 18px rgba(0,255,255,.35);
+  from{
+    opacity:0;
   }
 
-  to {
-    box-shadow: 0 0 42px rgba(0,255,255,.85);
-  }
-
-}
-
-@keyframes fadeIn {
-
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
+  to{
+    opacity:1;
   }
 
 }
 
-@keyframes slideUp {
+/* GLOW */
 
-  from {
-    transform: translateY(60px);
-    opacity: 0;
+.glow-orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.08;
+  z-index:0;
+}
+
+/* NAVBAR */
+
+.desktop-menu{
+  display:flex;
+  align-items:center;
+}
+
+.mobile-button{
+  display:none;
+}
+
+.mobile-menu{
+  display:none;
+}
+
+/* PROFILE */
+
+.profile-image{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #00ffff;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+  .desktop-menu{
+    display:none;
   }
 
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  .mobile-button{
+    display:block;
+  }
+
+  h1{
+    font-size:58px !important;
+    line-height:68px !important;
+  }
+
+  section{
+    padding-left:20px !important;
+    padding-right:20px !important;
   }
 
 }
 
-/* =========================
-   PARTICLES
-========================= */
+/* MOBILE */
 
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(0,255,255,.25);
-  animation: floatParticle linear infinite;
-  box-shadow: 0 0 10px rgba(0,255,255,.5);
-}
+@media(max-width:768px){
 
-@keyframes floatParticle {
-
-  from {
-    transform: translateY(0);
+  *{
+    animation:none !important;
+    transition:none !important;
   }
 
-  to {
-    transform: translateY(-120vh);
+  .glow-orb,
+  .particle,
+  .cursor-glow{
+    display:none !important;
   }
 
-}
-
-/* =========================
-   GLOW ORBS
-========================= */
-
-.glow-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: .18;
-  z-index: 0;
-  animation: orbMove 10s ease-in-out infinite alternate;
-}
-
-@keyframes orbMove {
-
-  from {
-    transform: translateY(0px) translateX(0px);
+  .cyber-card{
+    box-shadow:none !important;
+    backdrop-filter:none !important;
   }
 
-  to {
-    transform: translateY(25px) translateX(15px);
+  body{
+    background:#050816;
   }
 
-}
-
-/* =========================
-   LOADER
-========================= */
-
-@keyframes spin {
-
-  from {
-    transform: rotate(0deg);
+  h1{
+    font-size:42px !important;
+    line-height:50px !important;
   }
 
-  to {
-    transform: rotate(360deg);
+  p{
+    font-size:17px !important;
+    line-height:30px !important;
   }
 
-}
-
-/* =========================
-   TYPING CURSOR
-========================= */
-
-.typingCursor {
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-
-  0% {
-    opacity: 1;
+  .section-title{
+    font-size:34px;
   }
 
-  50% {
-    opacity: 0;
+  .profile-image{
+    width:160px;
+    height:160px;
   }
 
-  100% {
-    opacity: 1;
+  .cyber-button{
+    width:100%;
+    text-align:center;
   }
-
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-.desktop-menu {
-  display: flex;
-  align-items: center;
-}
-
-.mobile-button {
-  display: none;
-}
-
-.mobile-menu {
-  display: none;
-}
-
-.desktop-menu a,
-.mobile-menu a {
-  transition: 0.3s;
-}
-
-.desktop-menu a:hover,
-.mobile-menu a:hover {
-  color: #00ffff;
-  text-shadow: 0 0 15px #00ffff;
-}
-
-/* =========================
-   PROFILE IMAGE
-========================= */
-
-.profile-image {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #00ffff;
-  box-shadow: 0 0 35px rgba(0,255,255,.45);
-}
-
-/* =========================
-   RESPONSIVE TABLET
-========================= */
-
-@media (max-width: 900px) {
-
-  .desktop-menu {
-    display: none;
-  }
-
-  .mobile-button {
-    display: block;
-  }
-
-  h1 {
-    font-size: 58px !important;
-    line-height: 68px !important;
-  }
-
-  section {
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-  }
-
-}
-
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
-
-@media (max-width: 600px) {
-
-  h1 {
-    font-size: 42px !important;
-    line-height: 52px !important;
-  }
-
-  .section-title {
-    font-size: 36px;
-  }
-
-  p {
-    font-size: 18px !important;
-    line-height: 32px !important;
-  }
-
-  .profile-image {
-    width: 170px;
-    height: 170px;
-  }
-
-  .cyber-button {
-    width: 100%;
-    text-align: center;
-  }
-
-  /* TERMINAL */
-
-.terminal-line {
-  animation: terminalGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes terminalGlow {
-
-  from {
-    opacity: .7;
-    text-shadow: 0 0 8px rgba(0,255,255,.25);
-  }
-
-  to {
-    opacity: 1;
-    text-shadow: 0 0 20px rgba(0,255,255,.8);
-  }
-
-}
 
 }
