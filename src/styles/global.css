@@ -25,6 +25,10 @@ body{
   width:8px;
 }
 
+::-webkit-scrollbar-track{
+  background:#020617;
+}
+
 ::-webkit-scrollbar-thumb{
   background:#00ffff;
   border-radius:20px;
@@ -40,68 +44,140 @@ a{
 
 .section-title{
   font-family:'Orbitron',sans-serif;
-  font-size:clamp(34px,5vw,62px);
+  font-size:clamp(36px,5vw,68px);
   text-align:center;
-  margin-bottom:60px;
+  margin-bottom:65px;
   color:#00ffff;
-  text-shadow:0 0 12px rgba(0,255,255,.5);
+  text-shadow:
+    0 0 12px rgba(0,255,255,.55),
+    0 0 28px rgba(0,255,255,.18);
 }
 
 .neon-text{
   color:#00ffff;
-  text-shadow:0 0 10px rgba(0,255,255,.45);
+  text-shadow:
+    0 0 10px rgba(0,255,255,.45);
 }
 
 /* CARDS */
 
 .cyber-card{
-  background:rgba(10,15,35,.92);
-  border:1px solid rgba(0,255,255,.18);
-  border-radius:24px;
-  transition:.25s;
-}
-
-.cyber-card:hover{
-  transform:translateY(-5px);
-  border-color:rgba(0,255,255,.45);
-}
-
-/* BACKGROUND */
-
-.cyber-bg{
   background:
-    linear-gradient(rgba(0,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,.02) 1px, transparent 1px);
+    rgba(10,15,35,.82);
 
-  background-size:40px 40px;
+  border:
+    1px solid rgba(0,255,255,.18);
+
+  border-radius:26px;
+
+  transition:
+    .28s ease;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.cyber-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,255,255,.06),
+      transparent
+    );
+
+  pointer-events:none;
+
 }
 
 /* BUTTONS */
 
 .cyber-button{
+
   padding:16px 34px;
+
   border-radius:14px;
+
   border:1px solid #00ffff;
+
   color:#00ffff;
-  background:transparent;
+
+  background:
+    rgba(0,255,255,.03);
+
   font-size:17px;
+
   font-weight:bold;
-  transition:.25s;
+
+  transition:.25s ease;
+
+  display:inline-flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:10px;
+
 }
 
 .cyber-button:hover{
+
   background:#00ffff;
+
   color:#020617;
+
+  transform:
+    translateY(-3px);
+
+}
+
+/* BACKGROUND */
+
+.cyber-bg{
+
+  background:
+    linear-gradient(
+      rgba(0,255,255,.025) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(0,255,255,.025) 1px,
+      transparent 1px
+    ),
+
+    radial-gradient(
+      circle at top,
+      rgba(0,255,255,.10),
+      #050816 55%
+    );
+
+  background-size:
+    40px 40px,
+    40px 40px,
+    cover;
+
 }
 
 /* ANIMATIONS */
 
 .float{
-  animation:float 4s ease-in-out infinite;
+  animation:
+    float 4s ease-in-out infinite;
 }
 
 .fadeIn{
-  animation:fadeIn .8s ease;
+  animation:
+    fadeIn .8s ease;
 }
 
 @keyframes float{
@@ -135,11 +211,15 @@ a{
 /* GLOW */
 
 .glow-orb{
+
   position:absolute;
+
   border-radius:50%;
-  filter:blur(70px);
-  opacity:.08;
+
   z-index:0;
+
+  pointer-events:none;
+
 }
 
 /* NAVBAR */
@@ -147,6 +227,7 @@ a{
 .desktop-menu{
   display:flex;
   align-items:center;
+  gap:30px;
 }
 
 .mobile-button{
@@ -160,11 +241,60 @@ a{
 /* PROFILE */
 
 .profile-image{
-  width:200px;
-  height:200px;
+
+  width:210px;
+
+  height:210px;
+
   border-radius:50%;
+
   object-fit:cover;
-  border:2px solid #00ffff;
+
+  border:
+    2px solid #00ffff;
+
+}
+
+/* DESKTOP PREMIUM */
+
+@media(min-width:769px){
+
+  .cyber-card{
+
+    backdrop-filter:
+      blur(14px);
+
+    box-shadow:
+      0 0 28px rgba(0,255,255,.14);
+
+  }
+
+  .cyber-card:hover{
+
+    transform:
+      translateY(-10px)
+      scale(1.02);
+
+    box-shadow:
+      0 0 42px rgba(0,255,255,.28);
+
+  }
+
+  .glow-orb{
+
+    filter:blur(80px);
+
+    opacity:.12;
+
+  }
+
+  .cyber-button:hover{
+
+    box-shadow:
+      0 0 24px rgba(0,255,255,.45);
+
+  }
+
 }
 
 /* TABLET */
@@ -179,14 +309,9 @@ a{
     display:block;
   }
 
-  h1{
-    font-size:58px !important;
-    line-height:68px !important;
-  }
-
   section{
-    padding-left:20px !important;
-    padding-right:20px !important;
+    padding-left:22px!important;
+    padding-right:22px!important;
   }
 
 }
@@ -195,48 +320,94 @@ a{
 
 @media(max-width:768px){
 
-  *{
-    animation:none !important;
-    transition:none !important;
-  }
-
-  .glow-orb,
-  .particle,
-  .cursor-glow{
-    display:none !important;
-  }
-
-  .cyber-card{
-    box-shadow:none !important;
-    backdrop-filter:none !important;
-  }
-
   body{
     background:#050816;
   }
 
+  section{
+    padding-left:18px!important;
+    padding-right:18px!important;
+  }
+
   h1{
-    font-size:42px !important;
-    line-height:50px !important;
+
+    font-size:
+      clamp(38px,9vw,52px)!important;
+
+    line-height:
+      1.1!important;
+
   }
 
   p{
-    font-size:17px !important;
-    line-height:30px !important;
+
+    font-size:
+      16px!important;
+
+    line-height:
+      1.8!important;
+
   }
 
   .section-title{
-    font-size:34px;
+    font-size:32px;
   }
 
   .profile-image{
-    width:160px;
-    height:160px;
+
+    width:150px;
+
+    height:150px;
+
   }
 
   .cyber-button{
+
     width:100%;
+
     text-align:center;
+
+  }
+
+  .cyber-card{
+
+    backdrop-filter:
+      blur(6px);
+
+    box-shadow:
+      0 0 14px rgba(0,255,255,.10);
+
+  }
+
+  .glow-orb{
+
+    filter:blur(35px);
+
+    opacity:.06;
+
+  }
+
+  .float{
+
+    animation:
+      floatMobile 5s ease-in-out infinite;
+
+  }
+
+  @keyframes floatMobile{
+
+    0%{
+      transform:translateY(0);
+    }
+
+    50%{
+      transform:translateY(-5px);
+    }
+
+    100%{
+      transform:translateY(0);
+    }
+
   }
 
 }
