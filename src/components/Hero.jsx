@@ -1,7 +1,13 @@
-import cvData from "../data/cvData";
+import { useContext } from "react";
+
+import { CVContext } from "../context/CVContext";
+
 import TypingText from "./TypingText";
 
 function Hero() {
+
+  const { data } = useContext(CVContext);
+
   return (
     <section
       id="inicio"
@@ -18,29 +24,31 @@ function Hero() {
       }}
     >
 
-      {/* EFECTOS */}
+      {/* ORBS */}
 
       <div
         className="glow-orb"
         style={{
-          width: "300px",
-          height: "300px",
+          width: "320px",
+          height: "320px",
           background: "#00ffff",
-          top: "5%",
-          left: "-120px",
+          top: "0%",
+          left: "-140px",
         }}
       />
 
       <div
         className="glow-orb"
         style={{
-          width: "250px",
-          height: "250px",
+          width: "260px",
+          height: "260px",
           background: "#8b5cf6",
           bottom: "10%",
           right: "-100px",
         }}
       />
+
+      {/* CONTENIDO */}
 
       <div
         style={{
@@ -50,7 +58,7 @@ function Hero() {
         }}
       >
 
-        {/* FOTO / LOGO */}
+        {/* LOGO */}
 
         <div
           className="float pulseGlow"
@@ -75,14 +83,14 @@ function Hero() {
           CB
         </div>
 
-        {/* ESPECIALIDAD */}
+        {/* TAG */}
 
         <p
           className="neon-text"
           style={{
             letterSpacing: "7px",
             fontSize: "20px",
-            marginBottom: "25px",
+            marginBottom: "20px",
             fontWeight: "bold",
           }}
         >
@@ -101,7 +109,7 @@ function Hero() {
             textShadow: "0 0 35px rgba(0,255,255,.35)",
           }}
         >
-          {cvData.personal.nombre}
+          {data.personal.nombre}
         </h1>
 
         {/* TYPING */}
@@ -119,14 +127,14 @@ function Hero() {
             margin: "35px auto 0",
           }}
         >
-          {cvData.perfil}
+          {data.perfil}
         </p>
 
         {/* BOTONES */}
 
         <div
           style={{
-            marginTop: "65px",
+            marginTop: "60px",
             display: "flex",
             gap: "25px",
             justifyContent: "center",
@@ -166,44 +174,51 @@ function Hero() {
             className="cyber-card"
             style={infoCard}
           >
+
             <h3 className="neon-text">
               Universidad
             </h3>
 
             <p style={infoText}>
-              {cvData.personal.universidad}
+              {data.personal.universidad}
             </p>
+
           </div>
 
           <div
             className="cyber-card"
             style={infoCard}
           >
+
             <h3 className="neon-text">
               Carrera
             </h3>
 
             <p style={infoText}>
-              {cvData.personal.carrera}
+              {data.personal.carrera}
             </p>
+
           </div>
 
           <div
             className="cyber-card"
             style={infoCard}
           >
+
             <h3 className="neon-text">
               Ciclo
             </h3>
 
             <p style={infoText}>
-              {cvData.personal.ciclo}
+              {data.personal.ciclo}
             </p>
+
           </div>
 
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -2,25 +2,44 @@ import { useEffect, useState } from "react";
 
 import Loader from "./components/Loader";
 
+/* EFECTOS */
 import Background from "./components/Background";
 import CursorGlow from "./components/CursorGlow";
 
+/* NAVBAR */
 import Navbar from "./components/Navbar";
+
+/* SECCIONES PRINCIPALES */
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Education from "./components/Education";
+
+/* PERFIL PROFESIONAL */
 import Stats from "./components/Stats";
 import Skills from "./components/Skills";
 import TechStack from "./components/TechStack";
+
+/* SERVICIOS Y EXPERIENCIA */
 import Services from "./components/Services";
+import Experience from "./components/Experience";
+import Testimonials from "./components/Testimonials";
+
+/* PROYECTOS */
+import Projects from "./components/Projects";
+
+/* TECNOLOGÍAS */
 import Terminal from "./components/Terminal";
+
+/* DOCUMENTACIÓN */
 import ProfessionalJourney from "./components/ProfessionalJourney";
 import Documentation from "./components/Documentation";
-import Testimonials from "./components/Testimonials";
-import Projects from "./components/Projects";
+
+/* CERTIFICACIONES */
 import Certifications from "./components/Certifications";
-import Experience from "./components/Experience";
+
+/* CONTACTO */
 import Contact from "./components/Contact";
+import EditorPanel from "./components/EditorPanel";
 import Footer from "./components/Footer";
 
 function App() {
@@ -31,13 +50,11 @@ function App() {
 
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2200);
+    }, 2000);
 
     return () => clearTimeout(timer);
 
   }, []);
-
-  /* LOADER */
 
   if (loading) {
     return <Loader />;
@@ -52,14 +69,11 @@ function App() {
       }}
     >
 
-      {/* EFECTOS DE FONDO */}
-
+      {/* EFECTOS */}
       <Background />
-
       <CursorGlow />
 
       {/* CONTENIDO */}
-
       <div
         style={{
           position: "relative",
@@ -71,36 +85,45 @@ function App() {
 
         <main>
 
+          {/* HERO */}
           <Hero />
 
+          {/* PRESENTACIÓN */}
           <About />
-
           <Education />
 
+          {/* PERFIL */}
           <Stats />
-
           <Skills />
-
           <TechStack />
 
+          {/* SERVICIOS */}
           <Services />
 
-          <Terminal />
-
+          {/* EXPERIENCIA */}
+          <Experience />
           <Testimonials />
 
-          <ProfessionalJourney />
-
-          <Documentation />
-
+          {/* PROYECTOS */}
           <Projects />
 
+          {/* TERMINAL / DOCKER */}
+          <Terminal />
+
+          {/* DOCUMENTACIÓN */}
+          <ProfessionalJourney />
+          <Documentation />
+
+          {/* CERTIFICACIONES */}
           <Certifications />
 
-          <Experience />
-
+          {/* CONTACTO */}
           <Contact />
 
+          {/* PANEL EDITABLE */}
+          <EditorPanel />
+
+          {/* FOOTER */}
           <Footer />
 
         </main>
