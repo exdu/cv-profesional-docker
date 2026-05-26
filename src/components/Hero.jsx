@@ -5,7 +5,7 @@ function Hero() {
   const defaultData = {
 
     profileImage:
-      "https://i.imgur.com/2DhmtJ4.png",
+      "c:\Users\INTEL\Downloads\WhatsApp Image 2026-05-26 at 13.46.02.jpeg",
 
     tag:
       "CYBERSECURITY • WEB • DOCKER",
@@ -17,7 +17,7 @@ function Hero() {
       "Estudiante de Ingeniería de Sistemas orientado al desarrollo web, Docker, Linux y tecnologías modernas con enfoque profesional y responsive.",
 
     university:
-      "Universidad de Huánuco",
+      "Universidad de Nacional Hermilio Valdizán",
 
     career:
       "Ingeniería de Sistemas",
